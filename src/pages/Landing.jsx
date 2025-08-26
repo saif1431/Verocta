@@ -390,50 +390,54 @@ export default function Landing() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-400 to-indigo-400  ">
-        <motion.div 
-          className="container mx-auto px-4 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
-          variants={staggerChildren}
-        >
-          <motion.h2 
-            variants={fadeIn}
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
-          >
-            Join Thousands of Satisfied Users
-          </motion.h2>
-          <motion.p 
-            variants={fadeIn}
-            className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
-          >
-            Start your journey to better financial health today. Get your SpendScore and personalized recommendations in
-            minutes.
-          </motion.p>
-          <motion.div 
-            variants={fadeIn}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors flex items-center gap-2 shadow-lg"
-            >
-              Start Your Free Trial
-              <CheckCircle className="w-5 h-5" />
-            </motion.button>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="text-blue-200 text-sm"
-            >
-              No credit card required • 14-day free trial
-            </motion.p>
-          </motion.div>
-        </motion.div>
-      </section>
+    <section className="py-20 bg-gradient-to-r from-blue-400 to-indigo-400">
+  <motion.div
+    className="container mx-auto px-4 text-center"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.5 }}
+    variants={staggerChildren}
+  >
+    <motion.h2
+      variants={fadeIn}
+      className="text-3xl md:text-4xl font-bold text-white mb-4"
+    >
+      Get in Touch With Us
+    </motion.h2>
+    <motion.p
+      variants={fadeIn}
+      className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
+    >
+      Have questions or need help with your project?  
+      Our team is here to listen, guide, and build solutions with you.
+    </motion.p>
+
+    <motion.div
+      variants={fadeIn}
+      className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+    >
+      <motion.a
+        href="mailto:hello@yourdomain.com"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="btn-primary text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors flex items-center gap-2  "
+      >
+        Contact Us
+        <CheckCircle className="w-5 h-5" />
+      </motion.a>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className=" text-sm"
+      >
+        Available Mon–Fri • Replies within 24 hours
+      </motion.p>
+    </motion.div>
+  </motion.div>
+</section>
+
     </div>
   )
 }
