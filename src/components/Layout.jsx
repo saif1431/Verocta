@@ -148,8 +148,8 @@ export default function Layout() {
           <div className="container-page py-10 text-md grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 text-white font-semibold mb-2">
-                <img className='w-16' src="/logo.png" alt="" />
-                Verocta
+                <img className='w-20' src="/logo.png" alt="" />
+              
               </div>
               <p className="">Smarter spending for small businesses.</p>
             </div>
