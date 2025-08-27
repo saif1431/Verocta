@@ -69,7 +69,7 @@ function NavItem({ to, label }) {
       to={to}
       className={({ isActive }) =>
         `px-3 py-2 rounded-md text-md font-medium transition-colors ${
-          isActive ? 'text-black bg-primary' : 'text-black hover:text-white hover:bg-[#4A90E2]'
+          isActive ? 'text-white bg-primary' : 'text-white hover:text-white hover:bg-[#4A90E2]'
         }`
       }
     >
@@ -110,14 +110,14 @@ export default function Layout() {
   }, [location]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen  flex flex-col">
       {!hideHeaderFooter && (
-        <header className="border-b bg-white text-black border-slate-300 sticky top-0 z-40 ">
-          <div className="container-page flex h-20 items-center justify-between">
+        <header className="border-b bg-primary  text-white border-slate-300 sticky top-0 z-40 ">
+          <div className="container-page px-16 flex h-20 items-center justify-between">
             <Link to="/" className="flex items-center gap-2 font-semibold">
               <img className='w-22' src="/logo.png" alt="" />
             </Link>
-            <nav className="hidden md:flex text-black items-center gap-2">
+            <nav className="hidden md:flex text-white items-center gap-2">
               <NavItem to="/product" label="Product" />
               <NavItem to="/pricing" label="Pricing" />
               <NavItem to="/about" label="About" />
@@ -130,8 +130,8 @@ export default function Layout() {
                 <ProfileDropdown />
               ) : (
                 <>
-                  <Link to="/auth" className="btn-secondary">Login</Link>
-                  <Link to="/dashboard" className="btn-primary py-2">Open App</Link>
+                  <Link to="/auth" className="border-2 py-3 px-4 rounded-md border-[#27AE60] hover:bg-[#27AE60] hover:text-white">Login</Link>
+                  <Link to="/dashboard" className=" py-3 px-6 rounded-md  bg-[#27AE60] hover:text-white">Open App</Link>
                 </>
               )}
             </div>
@@ -144,38 +144,102 @@ export default function Layout() {
       </main>
 
       {!hideHeaderFooter && (
-        <footer className="border-t border-slate-800/80 mt-16">
-          <div className="container-page py-10 text-md grid grid-cols-1 md:grid-cols-3 gap-8">
+      <footer className="bg-primary text-white py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <div className="flex items-center gap-2 text-white font-semibold mb-2">
-                <img className='w-20' src="/logo.png" alt="" />
-              
+              <div className="flex items-center space-x-3 mb-4">
+              <img className='w-20' src="/logo.png" alt="" />
               </div>
-              <p className="">Smarter spending for small businesses.</p>
+              <p className="  leading-relaxed">
+                AI-powered financial intelligence for smarter business spending decisions and cost optimization.
+              </p>
             </div>
-            <div className="flex gap-22">
-              <div>
-                <div className="text-lg font-medium mb-2">Product</div>
-                <ul className="space-y-1">
-                  <li><Link to="/product" className="hover:text-gray-300">Features</Link></li>
-                  <li><Link to="/pricing" className="hover:text-gray-300">Pricing</Link></li>
-                  <li><Link to="/upload" className="hover:text-gray-300">CSV Upload</Link></li>
-                </ul>
-              </div>
-              <div>
-                <div className="text-white text-lg font-medium mb-2">Company</div>
-                <ul className="space-y-1">
-                  <li><Link to="/about" className="hover:text-gray-300">About</Link></li>
-                  <li><Link to="/legal/terms" className="hover:text-gray-300">Terms</Link></li>
-                  <li><Link to="/legal/privacy" className="hover:text-gray-300">Privacy</Link></li>
-                </ul>
-              </div>
+
+            <div>
+              <h4 className="font-semibold  mb-4">Product</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Pricing
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    API Documentation
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Integrations
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div className="text-white">
-              © {new Date().getFullYear()} Verocta. All rights reserved.
+
+            <div>
+              <h4 className="font-semibold  mb-4">Company</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Careers
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4">Support</h4>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Documentation
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-slate-900 transition-colors">
+                    Terms of Service
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-        </footer>
+
+          <div className="border-t border-slate-200 pt-8 text-center">
+            <p className="text-slate-200">&copy; 2024 SpendScore. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
       )}
     </div>
   );

@@ -1,443 +1,537 @@
-import { ArrowRight, BarChart3, Target, TrendingUp, Star, CheckCircle, CreditCard, DollarSign, PiggyBank, Shield, TrendingDown, Activity, Wallet } from "lucide-react"
+"use client"
+
 import { motion } from "framer-motion"
-
-// Animation variants
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-}
-
-const staggerChildren = {
-  visible: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-}
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
-}
-
-const slideInFromLeft = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7 } }
-}
-
-const slideInFromRight = {
-  hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.7 } }
-}
-
-const bounce = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { 
-      type: "spring", 
-      stiffness: 200, 
-      damping: 10 
-    } 
-  }
-}
+import { Upload, Brain, FileText, Star, Check, ArrowRight, TrendingUp, Shield, Clock, Award } from "lucide-react"
 
 export default function Landing() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  }
+
+  const fadeInLeft = {
+    initial: { opacity: 0, x: 20 },
+    animate: { opacity: 1, x: 0 },
+    transition: { duration: 0.6, ease: "easeOut" },
+  }
+
+  const staggerContainer = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen  bg-white">
+    
+
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 "></div>
-        <div className=" mx-auto px-4 relative z-10">
-          <motion.div 
-            className="max-w-6xl mx-auto text-center"
-            initial="hidden"
-            animate="visible"
-            variants={staggerChildren}
-          >
-            <motion.h1 
-              variants={fadeIn}
-              className="text-4xl md:text-6xl font-bold  mb-6 leading-tight"
+      <section className="relative px-12 overflow-hidden bg-gradient-to-br from-slate-50 to-white py-20 lg:py-28">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              className="text-center lg:text-left"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
             >
-              Transform Your Financial Insights with <span className="">SpendScore</span>
-            </motion.h1>
-            <motion.p 
-              variants={fadeIn}
-              className="text-xl  mb-8 max-w-2xl mx-auto leading-relaxed"
-            >
-              Unlock the power of your spending data with actionable insights. Make smarter financial decisions with our
-              advanced analytics platform.
-            </motion.p>
-            <motion.div 
-              variants={fadeIn}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary text-white py-4 px-8 rounded-lg text-lg font-semibold transition-colors flex items-center gap-2 shadow-lg"
+              <motion.div
+                className="mb-6 inline-flex items-center gap-2 bg-slate-100 text-slate-700 border border-slate-200 px-4 py-2 rounded-full text-sm font-medium"
+                variants={fadeInUp}
               >
-                Get Started Free
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-slate-300 hover:border-slate-400  hover:bg-white/50 px-8 py-4 rounded-lg text-lg font-semibold transition-colors backdrop-blur-sm"
+                <Award className="h-4 w-4" />
+                Trusted by 2,500+ Finance Teams
+              </motion.div>
+
+              <motion.h1
+                className="text-4xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight"
+                variants={fadeInUp}
               >
-                Watch Demo
-              </motion.button>
+                Optimize Business Spending with
+                <span className="block text-slate-700 mt-2">AI-Powered Insights</span>
+              </motion.h1>
+
+              <motion.p className="text-xl text-slate-600 mb-8 max-w-2xl leading-relaxed" variants={fadeInUp}>
+                Transform your expense data into actionable cost-saving recommendations. Get your proprietary
+                SpendScore™ and reduce operational costs by up to 35%.
+              </motion.p>
+
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
+                variants={fadeInUp}
+              >
+                <motion.button
+                  className="btn-primary text-white hover:bg-slate-800 text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg flex items-center justify-center font-medium"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Upload className="mr-2 h-5 w-5" />
+                  Get Your SpendScore™
+                </motion.button>
+                <motion.button
+                  className="btn-secondary text-slate-700 hover:bg-slate-50 text-lg px-8 py-2 rounded-lg bg-white transition-all duration-200 font-medium"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Watch Demo
+                </motion.button>
+              </motion.div>
+
+              <motion.div
+                className="flex items-center justify-center lg:justify-start space-x-8 text-slate-600"
+                variants={fadeInUp}
+              >
+                <div className="flex items-center space-x-2">
+                  <Shield className="h-5 w-5 text-green-600" />
+                  <span className="font-medium">Bank-Grade Security</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Clock className="h-5 w-5 text-blue-600" />
+                  <span className="font-medium">5-Minute Setup</span>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </div>
 
-        {/* SpendScore Visual/Animation */}
-        <motion.div 
-          className="mx-auto px-4 mt-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={staggerChildren}
-        >
-          <div className="max-w-6xl mx-auto">
-            <motion.div 
-              variants={scaleIn}
-              className=" rounded-2xl "
-            >
-              {/* Main Score Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <motion.div 
-                 variants={fadeIn}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="text-center bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6 border border-green-200"
-                >
-                  <motion.div 
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
-                  >
-                    <CreditCard className="w-8 h-8 text-white" />
-                  </motion.div>
-                  <div className="text-3xl font-bold text-green-700 mb-1">85</div>
-                  <h3 className="font-semibold text-slate-800 mb-1">Credit Score</h3>
-                  <p className="text-sm text-green-600 font-medium">Excellent</p>
-                  <div className="w-full bg-green-200 rounded-full h-2 mt-3">
-                    <div className="bg-green-500 h-2 rounded-full w-4/5"></div>
+            <motion.div className="relative" variants={fadeInLeft} initial="initial" animate="animate">
+              <motion.div
+                className="relative bg-white border border-slate-200 shadow-2xl max-w-lg mx-auto rounded-2xl overflow-hidden"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-slate-900">SpendScore™ Dashboard</h3>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span className="text-sm text-slate-600 font-medium">Live</span>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  variants={bounce}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="text-center bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6 border border-blue-200"
-                >
-                  <motion.div 
-                    whileHover={{ scale: 1.1, rotate: -5 }}
-                    className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
-                  >
-                    <BarChart3 className="w-8 h-8 text-white" />
-                  </motion.div>
-                  <div className="text-3xl font-bold text-blue-700 mb-1">92</div>
-                  <h3 className="font-semibold text-slate-800 mb-1">Spend Score</h3>
-                  <p className="text-sm text-blue-600 font-medium">Outstanding</p>
-                  <div className="w-full bg-blue-200 rounded-full h-2 mt-3">
-                    <div className="bg-blue-500 h-2 rounded-full w-[92%]"></div>
+                <div className="p-6">
+                  <div className="flex items-center justify-center mb-6">
+                    <div className="relative w-32 h-32">
+                      <svg className="w-32 h-32 transform -rotate-90" viewBox="0 0 36 36">
+                        <path
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="#e2e8f0"
+                          strokeWidth="2"
+                        />
+                        <motion.path
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="#1e293b"
+                          strokeWidth="2"
+                          strokeDasharray="85, 100"
+                          initial={{ strokeDasharray: "0, 100" }}
+                          animate={{ strokeDasharray: "85, 100" }}
+                          transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="text-center">
+                          <motion.div
+                            className="text-3xl font-bold text-slate-900"
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.5, delay: 1 }}
+                          >
+                            85
+                          </motion.div>
+                          <div className="text-sm text-slate-600 font-medium">Excellent</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </motion.div>
 
-                <motion.div 
-                  variants={bounce}
-                  whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                  className="text-center bg-gradient-to-br from-amber-50 to-orange-100 rounded-xl p-6 border border-amber-200"
-                >
-                  <motion.div 
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
-                  >
-                    <PiggyBank className="w-8 h-8 text-white" />
-                  </motion.div>
-                  <div className="text-3xl font-bold text-amber-700 mb-1">$2.4K</div>
-                  <h3 className="font-semibold text-slate-800 mb-1">Monthly Savings</h3>
-                  <p className="text-sm text-amber-600 font-medium">+15% this month</p>
-                  <div className="flex items-center justify-center mt-2">
-                    <TrendingUp className="w-4 h-4 text-green-500 mr-1" />
-                    <span className="text-xs text-green-600">Improving</span>
+                  <div className="space-y-4">
+                    {[
+                      { label: "Software Subscriptions", score: 92, savings: "£3,200", color: "green" },
+                      { label: "Marketing Spend", score: 78, savings: "£1,800", color: "yellow" },
+                      { label: "Office & Operations", score: 65, savings: "£950", color: "red" },
+                    ].map((item, index) => (
+                      <motion.div
+                        key={item.label}
+                        className="flex items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-100"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 + 1.2 }}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <div
+                            className={`w-3 h-3 rounded-full ${
+                              item.color === "green"
+                                ? "bg-green-500"
+                                : item.color === "yellow"
+                                  ? "bg-yellow-500"
+                                  : "bg-red-500"
+                            }`}
+                          />
+                          <span className="text-sm font-medium text-slate-900">{item.label}</span>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-sm font-bold text-slate-900">{item.score}</div>
+                          <div className="text-xs text-slate-600">Save {item.savings}/mo</div>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
-                </motion.div>
-              </div>
 
+                  <motion.div
+                    className="mt-6 p-4 bg-green-50 rounded-xl border border-green-200"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 1.8 }}
+                  >
+                    <div className="flex items-center space-x-2 mb-2">
+                      <TrendingUp className="h-4 w-4 text-green-700" />
+                      <span className="text-sm font-semibold text-green-900">Priority Recommendation</span>
+                    </div>
+                    <p className="text-sm text-green-800 mb-3">
+                      Consolidate overlapping SaaS subscriptions across teams
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="bg-green-700 text-white text-xs px-3 py-1 rounded-full font-medium">
+                        Save £5,950/month
+                      </div>
+                      <span className="text-xs text-green-700 font-medium">96% confidence</span>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="">
-        <div className="container mx-auto px-4">
-          <motion.div 
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
             className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={staggerChildren}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <motion.h2 
-              variants={fadeIn}
-              className="text-3xl md:text-4xl font-bold  mb-4"
-            >
-              How It Works
-            </motion.h2>
-            <motion.p 
-              variants={fadeIn}
-              className="text-xl  max-w-2xl mx-auto"
-            >
-              Three simple steps to transform your financial insights
-            </motion.p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">How SpendScore™ Works</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Our enterprise-grade AI analyzes your spending patterns and delivers actionable insights in minutes, not
+              weeks
+            </p>
           </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerChildren}
+          <motion.div
+            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
           >
-            <motion.div 
-              variants={slideInFromLeft}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="text-center bg-white border border-slate-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <motion.div 
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
+            {[
+              {
+                icon: Upload,
+                title: "Secure Data Upload",
+                description:
+                  "Upload CSV files or connect Google Sheets with bank-grade encryption. Support for all major accounting formats including QuickBooks, Xero, and SAP exports.",
+                features: ["256-bit encryption", "GDPR compliant", "Auto-categorization"],
+              },
+              {
+                icon: Brain,
+                title: "AI-Powered Analysis",
+                description:
+                  "Our proprietary algorithms analyze spending patterns, benchmark against industry standards, and identify cost optimization opportunities with 94% accuracy.",
+                features: ["Machine learning models", "Industry benchmarking", "Anomaly detection"],
+              },
+              {
+                icon: FileText,
+                title: "Actionable Reports",
+                description:
+                  "Receive detailed reports with prioritized recommendations, ROI projections, and implementation roadmaps reviewed by certified financial analysts.",
+                features: ["Executive summaries", "Implementation guides", "ROI tracking"],
+              },
+            ].map((step, index) => (
+              <motion.div
+                key={step.title}
+                className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
+                variants={fadeInUp}
               >
-                <BarChart3 className="w-10 h-10 text-white" />
+                <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-6">
+                  <step.icon className="h-8 w-8 text-slate-700" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">{step.description}</p>
+                <ul className="space-y-2">
+                  {step.features.map((feature) => (
+                    <li key={feature} className="flex items-center space-x-2 text-sm text-slate-600">
+                      <Check className="h-4 w-4 text-green-600" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">1. Analyze Your Spending</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Connect your accounts and let our AI analyze your spending patterns, identifying trends and
-                opportunities for improvement.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="text-center bg-white border border-slate-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <motion.div 
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-              >
-                <Target className="w-10 h-10 text-white" />
-              </motion.div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">2. Receive Your Score</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Get your personalized SpendScore based on your financial habits, with detailed breakdowns and actionable
-                recommendations.
-              </p>
-            </motion.div>
-
-            <motion.div 
-              variants={slideInFromRight}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="text-center bg-white border border-slate-200 rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <motion.div 
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg"
-              >
-                <TrendingUp className="w-10 h-10 text-white" />
-              </motion.div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">3. Optimize for Success</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Implement our personalized strategies to improve your financial health and watch your SpendScore grow
-                over time.
-              </p>
-            </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div 
+      {/* Testimonials */}
+      <section id="testimonials" className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
             className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            variants={staggerChildren}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
-            <motion.h2 
-              variants={fadeIn}
-              className="text-3xl md:text-4xl font-bold  mb-4"
-            >
-              What Our Users Say
-            </motion.h2>
-            <motion.p 
-              variants={fadeIn}
-              className="text-xl max-w-2xl mx-auto"
-            >
-              Join thousands of satisfied users who have transformed their financial lives
-            </motion.p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Trusted by Finance Leaders</h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              See how companies have reduced operational costs and improved financial efficiency
+            </p>
           </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={staggerChildren}
+          <motion.div
+            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
           >
-            <motion.div 
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 }}
-                  >
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                  </motion.div>
-                ))}
-              </div>
-              <p className="text-slate-700 mb-4 leading-relaxed">
-                "SpendScore helped me identify spending patterns I never noticed. I've saved over $500 per month since
-                using it!"
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-blue-600 font-semibold">SJ</span>
+            {[
+              {
+                name: "Sarah Chen",
+                role: "CFO, TechFlow Solutions",
+                company: "Series B SaaS, 200+ employees",
+                content:
+                  "SpendScore identified £18,000 in monthly savings we completely missed. The AI insights were incredibly accurate and the recommendations were immediately actionable. ROI was achieved in the first month.",
+                // savings: "£216K annually",
+                avatar: "SC",
+              },
+              {
+                name: "Marcus Rodriguez",
+                role: "VP Finance, GrowthCorp",
+                company: "E-commerce, £50M revenue",
+                content:
+                  "The real-time dashboard gives us unprecedented visibility into spending efficiency. We've reduced operational costs by 32% while maintaining growth trajectory. Essential tool for any finance team.",
+                // savings: "£1.2M annually",
+                avatar: "MR",
+              },
+              {
+                name: "Emma Thompson",
+                role: "Finance Director, InnovateLab",
+                company: "R&D Company, 150 employees",
+                content:
+                  "Finally, a solution that makes complex financial analysis simple and actionable. The AI recommendations have saved us over £85K annually while improving our budget allocation strategy.",
+                // savings: "£85K annually",
+                avatar: "ET",
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
+                variants={fadeInUp}
+              >
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
                 </div>
-                <div>
-                  <p className="font-semibold text-slate-900">Sarah Johnson</p>
-                  <p className="text-sm text-slate-500">Marketing Manager</p>
+                <p className="text-slate-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
+                      <span className="text-sm font-semibold text-slate-700">{testimonial.avatar}</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-900">{testimonial.name}</p>
+                      <p className="text-sm text-slate-600">{testimonial.role}</p>
+                      <p className="text-xs text-slate-500">{testimonial.company}</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-sm font-bold text-green-700">{testimonial.savings}</div>
+                    {/* <div className="text-xs text-slate-500">saved</div> */}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 + 0.2 }}
-                  >
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                  </motion.div>
-                ))}
-              </div>
-              <p className="text-slate-700 mb-4 leading-relaxed">
-                "The insights are incredible. My SpendScore improved from 65 to 89 in just three months. Highly
-                recommend!"
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-emerald-600 font-semibold">MC</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-slate-900">Michael Chen</p>
-                  <p className="text-sm text-slate-500">Software Engineer</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div 
-              variants={fadeIn}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="bg-white border border-slate-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow"
-            >
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: i * 0.1 + 0.4 }}
-                  >
-                    <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                  </motion.div>
-                ))}
-              </div>
-              <p className="text-slate-700 mb-4 leading-relaxed">
-                "Finally, a financial tool that actually makes sense. The recommendations are spot-on and easy to
-                implement."
-              </p>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mr-3">
-                  <span className="text-amber-600 font-semibold">ER</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-slate-900">Emily Rodriguez</p>
-                  <p className="text-sm text-slate-500">Small Business Owner</p>
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Final CTA Section */}
-    <section className="py-20 bg-gradient-to-r from-blue-400 to-indigo-400">
-  <motion.div
-    className="container mx-auto px-4 text-center"
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, amount: 0.5 }}
-    variants={staggerChildren}
-  >
-    <motion.h2
-      variants={fadeIn}
-      className="text-3xl md:text-4xl font-bold text-white mb-4"
-    >
-      Get in Touch With Us
-    </motion.h2>
-    <motion.p
-      variants={fadeIn}
-      className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
-    >
-      Have questions or need help with your project?  
-      Our team is here to listen, guide, and build solutions with you.
-    </motion.p>
+      {/* Pricing */}
+      <section id="pricing" className="py-16 bg-white">
+        <div className=" mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Simple, Transparent Pricing</h2>
+            <p className="text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+              Choose the plan that fits your business size. All plans include our core SpendScore™ technology
+            </p>
+          </motion.div>
 
-    <motion.div
-      variants={fadeIn}
-      className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-    >
-      <motion.a
-        href="mailto:hello@yourdomain.com"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="btn-primary text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors flex items-center gap-2  "
-      >
-        Contact Us
-        <CheckCircle className="w-5 h-5" />
-      </motion.a>
+          <motion.div
+            className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto"
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {[
+              {
+                name: "Starter",
+                price: "£49",
+                description: "Perfect for small businesses",
+                features: [
+                  "Up to 2,500 transactions/month",
+                  "Basic SpendScore™ analysis",
+                  "Monthly optimization reports",
+                  "Email support",
+                  "CSV upload & Google Sheets",
+                ],
+                popular: false,
+                cta: "Start 14-Day Free Trial",
+              },
+              {
+                name: "Professional",
+                price: "£149",
+                description: "For growing companies",
+                features: [
+                  "Up to 15,000 transactions/month",
+                  "Advanced SpendScore™ with benchmarking",
+                  "Weekly reports & real-time alerts",
+                  "Priority support & onboarding",
+                  "API access & custom integrations",
+                  "Team collaboration tools",
+                ],
+                popular: true,
+                cta: "Start 14-Day Free Trial",
+              },
+              {
+                name: "Enterprise",
+                price: "Custom",
+                description: "For large organizations",
+                features: [
+                  "Unlimited transactions",
+                  "Enterprise SpendScore™ suite",
+                  "Real-time dashboards & alerts",
+                  "Dedicated customer success manager",
+                  "White-label options",
+                  "Advanced security & compliance",
+                  "Custom reporting & analytics",
+                ],
+                popular: false,
+                cta: "Contact Sales",
+              },
+            ].map((plan, index) => (
+              <motion.div
+                key={plan.name}
+                className={`bg-white border rounded-2xl p-8 relative hover:shadow-lg transition-all duration-300 ${
+                  plan.popular ? "border-slate-900 shadow-lg" : "border-slate-200"
+                }`}
+                variants={fadeInUp}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="bg-slate-900 text-white px-4 py-2 rounded-full text-sm font-medium">
+                      Most Popular
+                    </div>
+                  </div>
+                )}
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{plan.name}</h3>
+                <p className="text-slate-600 mb-6">{plan.description}</p>
+                <div className="mb-8">
+                  <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
+                  {plan.price !== "Custom" && <span className="text-slate-600">/month</span>}
+                </div>
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start space-x-3">
+                      <Check className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
+                      <span className="text-slate-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <motion.button
+                  className={`w-full py-3 rounded-lg transition-all duration-200 font-medium ${
+                    plan.popular
+                      ? "bg-slate-900 hover:bg-slate-800 text-white"
+                      : "bg-slate-100 hover:bg-slate-200 text-slate-900"
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {plan.cta}
+                </motion.button>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className=" text-sm"
-      >
-        Available Mon–Fri • Replies within 24 hours
-      </motion.p>
-    </motion.div>
-  </motion.div>
-</section>
+      {/* Final CTA */}
+      <section className="py-20 text-black relative overflow-hidden">
+        <div className="absolute inset-0 " />
 
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2
+            className="text-3xl lg:text-4xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Ready to optimize your business spending?
+          </motion.h2>
+          <motion.p
+            className="text-xl   mb-8 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            Join 2,500+ finance teams using SpendScore™ to reduce costs and improve financial efficiency
+          </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <motion.button
+              className="btn-primary text-slate-900 hover:bg-slate-100 text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg flex items-center justify-center font-medium"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Upload className="mr-2 h-5 w-5" />
+              Start 14-Day Free Trial
+            </motion.button>
+            <motion.button
+              className="btn-secondary text-white hover:bg-slate-800 text-lg px-8 py-4 rounded-lg bg-transparent transition-all duration-200 flex items-center justify-center font-medium"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Schedule Demo
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
+     
     </div>
   )
 }

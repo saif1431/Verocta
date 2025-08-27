@@ -15,9 +15,10 @@ html, body, #root {
 
 body {
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  @apply bg-[#4A90E2] text-white antialiased;
+  @apply bg-white text-black antialiased;
 }
 
+.bg-
 .container-page {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
@@ -36,9 +37,9 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center gap-2 rounded-lg bg-[#27AE60] hover:bg-[#27ae5fc2]  text-white px-8 transition-colors;
+  @apply inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#4A90E2] to-[#6C63FF] hover:bg-[#2D9cDB] hover:opacity-90 text-white px-8 transition-colors;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center gap-2 rounded-lg bg-[#4A90E2] hover:bg-[#4a91e2b8]  text-slate-100 px-4 py-2 transition-colors;
+  @apply inline-flex items-center gap-2 rounded-lg border-2 border-[#6C63FF] hover:bg-gradient-to-r from-[#4A90E2] to-[#6C63FF]  text-black px-4 py-2  hover:text-white transition-colors;
 }
