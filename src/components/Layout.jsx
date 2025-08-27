@@ -144,7 +144,7 @@ export default function Layout() {
       </main>
 
       {!hideHeaderFooter && (
-      <footer className="bg-primary text-white py-16">
+      <footer className="bg-primary  lg:px-10 px-4 text-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
