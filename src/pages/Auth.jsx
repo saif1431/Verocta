@@ -69,13 +69,13 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen grid place-items-center py-16">
-      <div className="w-full max-w-md glass rounded-2xl p-8 border border-slate-800">
+      <div className="w-full max-w-md  rounded-2xl p-8 border border-slate-300 shadow-xl">
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 text-white font-semibold">
-            <img className='w-16' src="/logo.png" alt="" />
-            Verocta
+            <img className='w-20' src="/logo.png" alt="" />
+            
           </div>
-          <div className="mt-2 text-slate-400">{mode === 'login' ? 'Welcome back' : 'Create your account'}</div>
+          <div className="mt-2 text-slate-800">{mode === 'login' ? 'Welcome back' : 'Create your account'}</div>
         </div>
         
         {error && (
@@ -85,7 +85,7 @@ export default function Auth() {
         )}
         
         {mode === 'login' && (
-          <div className="mb-4 p-3 bg-slate-800/50 border border-slate-700 rounded-md text-slate-300 text-sm">
+          <div className="mb-4 p-3 bg-slate-300 border border-slate-700 rounded-md text-black text-sm">
             Demo credentials: demo@verocta.com / password123
           </div>
         )}
@@ -93,39 +93,39 @@ export default function Auth() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-sm text-slate-300 mb-1">Name</label>
+              <label className="block text-sm text-slate-800 mb-1">Name</label>
               <input 
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full rounded-md bg-slate-900 border border-slate-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" 
+                className="w-full rounded-md  border border-slate-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" 
                 placeholder="Ada Lovelace" 
               />
             </div>
           )}
           <div>
-            <label className="block text-sm text-slate-300 mb-1">Email</label>
+            <label className="block text-sm text-slate-800 mb-1">Email</label>
             <input 
               type="email" 
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full rounded-md bg-slate-900 border border-slate-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" 
+              className="w-full rounded-md  border border-slate-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" 
               placeholder="you@company.com" 
             />
           </div>
           <div>
-            <label className="block text-sm text-slate-300 mb-1">Password</label>
+            <label className="block text-sm text-slate-800 mb-1">Password</label>
             <input 
               type="password" 
               name="password"
               value={formData.password}
               onChange={handleInputChange}
-              className="w-full rounded-md bg-slate-900 border border-slate-800 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" 
+              className="w-full rounded-md  border border-slate-400 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-600" 
               placeholder="••••••••" 
             />
           </div>
-          <button className="btn-primary text-center w-full py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white font-medium" type="submit">
+          <button className="btn-primary text-center w-fit py-3 rounded-md btn-primary text-white font-medium" type="submit">
             {mode === 'login' ? 'Login' : 'Create account'}
           </button>
         </form>

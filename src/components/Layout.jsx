@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import Footer from './Footer';
 
 // ProfileDropdown Component
 function ProfileDropdown() {
@@ -63,13 +64,14 @@ function ProfileDropdown() {
   );
 }
 
-function NavItem({ to, label }) {
+function NavItem({ to, label, onClick }) {
   return (
     <NavLink
       to={to}
+      onClick={onClick}
       className={({ isActive }) =>
         `px-3 py-2 rounded-md text-md font-medium transition-colors ${
-          isActive ? 'text-white bg-primary' : 'text-white hover:text-white hover:bg-[#4A90E2]'
+          isActive ? 'text-black ' : 'text-black hover:text-white hover:bg-[#4A90E2]'
         }`
       }
     >
@@ -81,6 +83,7 @@ function NavItem({ to, label }) {
 export default function Layout() {
   const location = useLocation();
   const [user, setUser] = useState(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hideHeaderFooter = location.pathname.startsWith('/auth');
 
   // Function to check authentication status
@@ -109,33 +112,156 @@ export default function Layout() {
     };
   }, [location]);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <div className="min-h-screen  flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {!hideHeaderFooter && (
-        <header className="border-b bg-primary  text-white border-slate-300 sticky top-0 z-40 ">
-          <div className="container-page px-16 flex h-20 items-center justify-between">
+        <header className="border-b bg-white text-black border-slate-300 sticky top-0 z-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-16 flex h-20 items-center justify-between">
             <Link to="/" className="flex items-center gap-2 font-semibold">
-              <img className='w-22' src="/logo.png" alt="" />
+              <img className='w-22' src="/logo.png" alt="Verocta Logo" />
             </Link>
-            <nav className="hidden md:flex text-white items-center gap-2">
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex text-black items-center gap-2">
               <NavItem to="/product" label="Product" />
               <NavItem to="/pricing" label="Pricing" />
-              <NavItem to="/about" label="About" />
-              <NavItem to="/upload" label="Upload" />
-              <NavItem to="/insights" label="Insights" />
-              <NavItem to="/reports" label="Reports" />
+              <NavItem to="/Resources" label="Resources" />
+              <NavItem to="/Company" label="Company" />
+              <NavItem to="/Legal" label="Legal" />
             </nav>
-            <div className="flex items-center gap-2">
+
+            {/* Desktop Auth Buttons */}
+            <div className="hidden md:flex items-center gap-2">
               {user ? (
-                <ProfileDropdown />
+                <div className='flex items-center gap-2'>
+                  <ProfileDropdown />
+                  <Link to="/dashboard" className="py-3 px-6 rounded-md btn-secondary hover:text-white">
+                    Dashboard
+                  </Link>
+                </div>          
               ) : (
                 <>
-                  <Link to="/auth" className="border-2 py-3 px-4 rounded-md border-[#27AE60] hover:bg-[#27AE60] hover:text-white">Login</Link>
-                  <Link to="/dashboard" className=" py-3 px-6 rounded-md  bg-[#27AE60] hover:text-white">Open App</Link>
+                  <Link to="/auth" className="border-2 py-3 px-4 rounded-md btn-primary hover:text-white">
+                    Login
+                  </Link>
+                  <Link to="" className="py-3 px-6 rounded-md btn-secondary hover:text-white">
+                    Start your free trial
+                  </Link>
                 </>
               )}
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2 rounded-md text-black hover:bg-gray-100 focus:outline-none"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
           </div>
+
+          {/* Mobile Menu Overlay */}
+          {mobileMenuOpen && (
+            <div className="md:hidden fixed inset-0 z-40 bg-opacity-50" onClick={closeMobileMenu}>
+              <div 
+                className="fixed right-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex flex-col h-full p-6">
+                  {/* Close Button */}
+                  <div className="flex justify-end mb-6">
+                    <button 
+                      onClick={closeMobileMenu}
+                      className="p-2 rounded-md hover:bg-gray-100"
+                      aria-label="Close menu"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Mobile Navigation Links */}
+                  <nav className="flex flex-col space-y-4 mb-8">
+                    <NavItem to="/product" label="Product" onClick={closeMobileMenu} />
+                    <NavItem to="/pricing" label="Pricing" onClick={closeMobileMenu} />
+                    <NavItem to="/Resources" label="Resources" onClick={closeMobileMenu} />
+                    <NavItem to="/Company" label="Company" onClick={closeMobileMenu} />
+                    <NavItem to="/Legal" label="Legal" onClick={closeMobileMenu} />
+                  </nav>
+
+                  {/* Mobile Auth Buttons */}
+                  <div className="mt-auto space-y-4">
+                    {user ? (
+                      <>
+                        <div className="p-3 bg-gray-100 rounded-md">
+                          <p className="text-sm font-medium text-gray-800">Signed in as</p>
+                          <p className="text-sm text-gray-600 truncate">{user.email}</p>
+                        </div>
+                        <Link 
+                          to="/dashboard" 
+                          className="block w-full text-center py-3 px-4 rounded-md btn-secondary hover:text-white"
+                          onClick={closeMobileMenu}
+                        >
+                          Dashboard
+                        </Link>
+                        <button
+                          onClick={() => {
+                            localStorage.removeItem('user');
+                            setUser(null);
+                            closeMobileMenu();
+                            window.location.href = '/';
+                          }}
+                          className="block w-full text-center py-3 px-4 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100"
+                        >
+                          Sign out
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        <Link 
+                          to="/auth" 
+                          className="block w-full text-center py-3 px-4 rounded-md border-2 btn-primary hover:text-white"
+                          onClick={closeMobileMenu}
+                        >
+                          Login
+                        </Link>
+                        <Link 
+                          to="" 
+                          className="block w-full text-center py-3 px-4 rounded-md btn-secondary hover:text-white"
+                          onClick={closeMobileMenu}
+                        >
+                          Start your free trial
+                        </Link>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </header>
       )}
 
@@ -143,104 +269,7 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      {!hideHeaderFooter && (
-      <footer className="bg-primary  lg:px-10 px-4 text-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-              <img className='w-20' src="/logo.png" alt="" />
-              </div>
-              <p className="  leading-relaxed">
-                AI-powered financial intelligence for smarter business spending decisions and cost optimization.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold  mb-4">Product</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    API Documentation
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Integrations
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold  mb-4">Company</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-3">
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Help Center
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-slate-900 transition-colors">
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-slate-200 pt-8 text-center">
-            <p className="text-slate-200">&copy; 2024 SpendScore. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-      )}
+      {!hideHeaderFooter && <Footer />}
     </div>
   );
 }

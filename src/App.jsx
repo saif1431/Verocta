@@ -11,6 +11,9 @@ import Dashboard from './pages/Dashboard'
 import Upload from './pages/Upload'
 import Insights from './pages/Insights'
 import Reports from './pages/Reports'
+import Company from './pages/CompanyPage'
+import Legal from './pages/Legal'
+import Resources from './pages/Resources'
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
           <Route path="/upload" element={<Upload />} />
           <Route path="/insights" element={<Insights />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/Company" element={<Company />} />
+          <Route path="/Legal" element={<Legal />} />
+          <Route path="/Resources" element={<Resources />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
