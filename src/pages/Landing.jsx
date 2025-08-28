@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Upload, Brain, FileText, Star, Check, ArrowRight, TrendingUp, Shield, Clock, Award } from "lucide-react"
 import HeroSection from "../components/HeroSection"
 import Pricing from "./Pricing"
+import Testimonial from "../components/Testimonial"
 
 export default function Landing() {
   const fadeInUp = {
@@ -33,7 +34,6 @@ export default function Landing() {
       {/* Hero Section */}
   
   <HeroSection/>
-
       {/* Features Section */}
       <section id="features" className="py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -114,89 +114,7 @@ export default function Landing() {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-slate-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">Trusted by Finance Leaders</h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              See how companies have reduced operational costs and improved financial efficiency
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-            variants={staggerContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {[
-              {
-                name: "Sarah Chen",
-                role: "CFO, TechFlow Solutions",
-                company: "Series B SaaS, 200+ employees",
-                content:
-                  "SpendScore identified £18,000 in monthly savings we completely missed. The AI insights were incredibly accurate and the recommendations were immediately actionable. ROI was achieved in the first month.",
-                // savings: "£216K annually",
-                avatar: "SC",
-              },
-              {
-                name: "Marcus Rodriguez",
-                role: "VP Finance, GrowthCorp",
-                company: "E-commerce, £50M revenue",
-                content:
-                  "The real-time dashboard gives us unprecedented visibility into spending efficiency. We've reduced operational costs by 32% while maintaining growth trajectory. Essential tool for any finance team.",
-                // savings: "£1.2M annually",
-                avatar: "MR",
-              },
-              {
-                name: "Emma Thompson",
-                role: "Finance Director, InnovateLab",
-                company: "R&D Company, 150 employees",
-                content:
-                  "Finally, a solution that makes complex financial analysis simple and actionable. The AI recommendations have saved us over £85K annually while improving our budget allocation strategy.",
-                // savings: "£85K annually",
-                avatar: "ET",
-              },
-            ].map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
-                variants={fadeInUp}
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-slate-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center">
-                      <span className="text-sm font-semibold text-slate-700">{testimonial.avatar}</span>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-slate-900">{testimonial.name}</p>
-                      <p className="text-sm text-slate-600">{testimonial.role}</p>
-                      <p className="text-xs text-slate-500">{testimonial.company}</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-sm font-bold text-green-700">{testimonial.savings}</div>
-                    {/* <div className="text-xs text-slate-500">saved</div> */}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+   <Testimonial/>
 
       {/* Pricing */}
       <Pricing/>

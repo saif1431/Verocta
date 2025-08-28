@@ -71,27 +71,27 @@ export default function Resources() {
   const faqs = [
     {
       category: "upload",
-      question: "What file formats do you support?",
+      question: "How is Verocta different from Xero or other accounting platforms?",
       answer:
-        "We support CSV, Excel (.xlsx), and Google Sheets exports. Files should contain transaction data with date, amount, and description columns.",
+        "Xero and similar accounting tools focus mainly on bookkeeping and accounting. Verocta goes further by analyzing your transaction data to identify unnecessary expenses and provide actionable recommendations. It’s designed specifically for small businesses and startups, giving clear insights to optimize spending and save money.",
     },
     {
       category: "billing",
-      question: "How does pricing work?",
+      question: "How does Verocta compare to AI tools like ChatGPT?",
       answer:
-        "We offer flexible pricing based on transaction volume and features needed. Start with our free tier for up to 1,000 transactions per month.",
+        "While ChatGPT can provide general ideas or insights, it is not designed for precise financial analysis and its results may vary depending on input data. Verocta, on the other hand, is purpose-built for financial analysis. It integrates directly with your business transactions to deliver reliable, personalized insights, SpendScore reports, and actionable cost-saving recommendations with consistent accuracy.",
     },
     {
       category: "accuracy",
-      question: "How accurate is the AI categorization?",
+      question: "What makes Verocta unique compared to other financial tools?",
       answer:
-        "Our AI achieves 98% accuracy in transaction categorization, with continuous learning from user feedback to improve over time.",
+        "Verocta combines AI-powered insights with practical, actionable reporting. Key differentiators include instant PDF reports summarizing actionable insights, a traffic-light system for quick prioritization, tiered plans that suit lean businesses, and recommendations backed by verified algorithms tailored to your spending habits.",
     },
     {
       category: "technical",
-      question: "Do you offer API access?",
+      question: "How can Verocta give actionable insights in minutes if there’s a human review?",
       answer:
-        "Yes, we provide REST API access for enterprise customers to integrate SpendScore directly into their existing financial systems.",
+        "Verocta’s AI engine analyses your spending data instantly and generates actionable insights for you to start optimising right away. Some reports are also reviewed by a human in the background to check for accuracy and refine recommendations. You still get your insights immediately human review just makes future reports even more reliable.",
     },
   ]
 

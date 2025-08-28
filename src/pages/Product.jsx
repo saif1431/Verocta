@@ -17,9 +17,16 @@ import {
   Award,
   Clock,
   Lightbulb,
+  Info,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react"
+import { useState } from "react"
 
 export default function Product() {
+  const [showAccuracyDetails, setShowAccuracyDetails] = useState(false)
+  const [showRecommendationsDetails, setShowRecommendationsDetails] = useState(false)
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -131,7 +138,7 @@ export default function Product() {
               {
                 step: "2",
                 title: "Get AI Analysis",
-                desc: "Our AI categorizes transactions and analyzes spending patterns with 98% accuracy",
+                desc: "Our AI categorizes transactions and analyzes spending patterns with 94% average accuracy (optimized users achieve up to 98%)",
                 icon: Brain,
                 color: "from-indigo-500 to-indigo-600",
               },
@@ -165,6 +172,171 @@ export default function Product() {
                     </div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3">{step.title}</h3>
                     <p className="text-slate-600">{step.desc}</p>
+
+                    {step.step === "2" && (
+                      <div className="mt-4">
+                        <button
+                          onClick={() => setShowAccuracyDetails(!showAccuracyDetails)}
+                          className="flex items-center gap-2 mx-auto text-sm text-blue-600 hover:text-blue-700 transition-colors"
+                        >
+                          <Info className="w-4 h-4" />
+                          How is accuracy calculated?
+                          {showAccuracyDetails ? (
+                            <ChevronUp className="w-4 h-4" />
+                          ) : (
+                            <ChevronDown className="w-4 h-4" />
+                          )}
+                        </button>
+
+                        {showAccuracyDetails && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200 text-left"
+                          >
+                            <h4 className="font-semibold text-slate-900 mb-3 text-sm">Our AI accuracy is based on:</h4>
+                            <div className="space-y-2 text-xs text-slate-700">
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Historical transaction data:</strong> Learning from millions of categorized
+                                  transactions to identify patterns and anomalies
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>AI-driven categorization:</strong> Spending categories are automatically
+                                  detected and verified for accuracy using advanced machine learning
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Advanced algorithms:</strong> Detect unnecessary or duplicate expenses through
+                                  pattern recognition
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Error correction:</strong> Continuous learning from user feedback and
+                                  corrections
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Monthly updates:</strong> Regular model improvements reflecting the latest
+                                  spending patterns and market trends
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Personalized insights:</strong> Analysis is tailored to each business's unique
+                                  spending habits and industry patterns
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Data validation:</strong> Multiple verification layers ensure recommendations
+                                  are reliable and actionable
+                                </span>
+                              </div>
+                            </div>
+                            <div className="mt-3 p-2 bg-blue-50 rounded border border-blue-200">
+                              <p className="text-xs text-blue-800">
+                                <strong>Note:</strong> Accuracy improves with usage. New users start at 94% average,
+                                while optimized users with clean data achieve up to 98%.
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+                    )}
+
+                    {step.step === "3" && (
+                      <div className="mt-4">
+                        <button
+                          onClick={() => setShowRecommendationsDetails(!showRecommendationsDetails)}
+                          className="flex items-center gap-2 mx-auto text-sm text-blue-600 hover:text-blue-700 transition-colors"
+                        >
+                          <Info className="w-4 h-4" />
+                          How are recommendations generated?
+                          {showRecommendationsDetails ? (
+                            <ChevronUp className="w-4 h-4" />
+                          ) : (
+                            <ChevronDown className="w-4 h-4" />
+                          )}
+                        </button>
+
+                        {showRecommendationsDetails && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mt-4 p-4 bg-slate-50 rounded-lg border border-slate-200 text-left"
+                          >
+                            <h4 className="font-semibold text-slate-900 mb-3 text-sm">
+                              Our recommendation engine uses:
+                            </h4>
+                            <div className="space-y-2 text-xs text-slate-700">
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Pattern analysis:</strong> Identifies spending patterns and anomalies across
+                                  your transaction history
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Duplicate detection:</strong> Advanced algorithms automatically identify
+                                  unnecessary or overlapping expenses
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Industry benchmarking:</strong> Compares your spending against similar
+                                  businesses to identify optimization opportunities
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Personalized insights:</strong> Tailored recommendations based on your
+                                  business size, industry, and spending habits
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Impact prioritization:</strong> Ranks suggestions by potential savings and
+                                  implementation difficulty
+                                </span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <span>
+                                  <strong>Continuous refinement:</strong> Monthly updates improve recommendations based
+                                  on new data and market changes
+                                </span>
+                              </div>
+                            </div>
+                            <div className="mt-3 p-2 bg-purple-50 rounded border border-purple-200">
+                              <p className="text-xs text-purple-800">
+                                <strong>Result:</strong> Actionable, prioritized recommendations that typically identify
+                                15-30% potential cost savings.
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+                    )}
                   </div>
                   {index < 2 && (
                     <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
@@ -191,9 +363,9 @@ export default function Product() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 col-lg-1 gap-12 lg:max-w-6xl mx-auto items-center">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
             <div className="space-y-6">
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-4">
                 <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 text-center">
                   <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
                     <CheckCircle className="w-6 h-6 text-white" />
@@ -370,7 +542,7 @@ export default function Product() {
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">Tailored solutions for every type of business</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
               {
                 type: "Startups",
