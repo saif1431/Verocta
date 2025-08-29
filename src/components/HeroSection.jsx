@@ -3,8 +3,13 @@
 import { motion } from "framer-motion"
 import { Check, TrendingUp } from "lucide-react"
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+
 
 export default function HeroSection() {
+
+const navigate = useNavigate()
+
   const [realTimeData, setRealTimeData] = useState({
     spend_score: 85,
     tier_info: {
@@ -71,9 +76,9 @@ export default function HeroSection() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative overflow-hidden px-4 lg:px-12 bg-gradient-to-br from-slate-50 to-white py-10  lg:py-16">
+      <section className="relative overflow-hidden px-4 lg:px-12  py-10  lg:py-16">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
 
         <div className=" relative mx-auto px-2 sm:px-6 lg:px-8">
@@ -106,6 +111,7 @@ export default function HeroSection() {
                   className="btn-primary text-white text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg flex items-center justify-center font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate("/pricing")}
                 >
                   Try free analysis
                 </motion.button>
@@ -113,6 +119,7 @@ export default function HeroSection() {
                   className="btn-secondary hover:bg-slate-50 text-lg px-8 py-4 rounded-lg bg-white transition-all duration-200 font-medium"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => navigate("/auth")}
                 >
                   Sign up/log in
                 </motion.button>

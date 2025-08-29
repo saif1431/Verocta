@@ -69,7 +69,7 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen ">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-white to-purple-100"></div>
@@ -229,7 +229,7 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16  lg:px-16 px-4 bg-gray-50">
+      <section className="py-16  lg:px-16 px-4 ">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="max-w-3xl mx-auto text-center mb-12"

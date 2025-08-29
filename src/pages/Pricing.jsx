@@ -142,7 +142,7 @@ export default function Pricing() {
   };
 
   return (
-    <section id="pricing" className="py-16 bg-gradient-to-b from-slate-50 to-white">
+    <section id="pricing" className="py-16">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"

@@ -146,7 +146,7 @@ export default function Resources() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen ">
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
@@ -172,11 +172,11 @@ export default function Resources() {
             transition={{ delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
+            <button className="btn-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-2">
               <Download className="w-5 h-5" />
               Download Sample Report
             </button>
-            <button className="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center gap-2">
+            <button className="btn-secondary text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center gap-2">
               <PlayCircle className="w-5 h-5" />
               Watch Getting Started Video
             </button>
@@ -223,7 +223,7 @@ export default function Resources() {
       </section>
 
       {/* Onboarding & Help Section */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 ">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -302,7 +302,7 @@ export default function Resources() {
                       onClick={() => setSelectedFaqCategory(category.id)}
                       className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                         selectedFaqCategory === category.id
-                          ? "bg-blue-600 text-white"
+                          ? "bg-[#1E40AF]  text-white"
                           : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                       }`}
                     >
@@ -370,7 +370,7 @@ export default function Resources() {
       </section>
 
       {/* Downloadable Resources */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 ">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -446,7 +446,7 @@ export default function Resources() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+            <button className="btn-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
               View All Articles
             </button>
           </div>

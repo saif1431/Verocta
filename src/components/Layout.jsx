@@ -71,7 +71,7 @@ function NavItem({ to, label, onClick }) {
       onClick={onClick}
       className={({ isActive }) =>
         `px-3 py-2 rounded-md text-md font-medium transition-colors ${
-          isActive ? 'text-black ' : 'text-black hover:text-white hover:bg-[#4A90E2]'
+          isActive ? 'text-black ' : 'text-black hover:text-white hover:bg-[#1E40AF]'
         }`
       }
     >
@@ -157,7 +157,7 @@ export default function Layout() {
                   <Link to="/auth" className="border-2 py-3 px-4 rounded-md btn-primary hover:text-white">
                     Login
                   </Link>
-                  <Link to="" className="py-3 px-6 rounded-md btn-secondary hover:text-white">
+                  <Link to="/pricing" className="py-3 px-6 rounded-md btn-secondary hover:text-white">
                     Start your free trial
                   </Link>
                 </>

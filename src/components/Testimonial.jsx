@@ -27,7 +27,7 @@ export default function Testimonial() {
   ];
 
   const renderMetricsSection = () => (
-    <section className="py-20 lg:px-12 px-4 bg-slate-50">
+    <section className="py-20 lg:px-12 px-4 ">
       <div className=" mx-auto px-4 sm:px-6 lg:px-12">
         <motion.div
           className="text-center mb-16"
@@ -309,9 +309,9 @@ export default function Testimonial() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       {/* Option Selector */}
-      <div className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <div className=" border-b border-gray-200 sticky top-0 z-10">
         <div className="flex flex-col items-center mx-auto px-4 py-4">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Authentic Testimonials Section Options</h1>
           <div className="flex flex-wrap gap-2">
@@ -321,7 +321,7 @@ export default function Testimonial() {
                 onClick={() => setActiveOption(option.id)}
                 className={`flex items-center px-4 py-2 rounded-lg transition-colors ${
                   activeOption === option.id
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-[#1E40AF]  text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -342,7 +342,7 @@ export default function Testimonial() {
       </div>
 
       {/* Implementation Notes */}
-      <div className="bg-white border-t border-gray-200 p-8">
+      <div className=" border-t border-gray-200 p-8">
         <div className="container mx-auto">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Implementation Notes:</h3>
           <div className="grid md:grid-cols-2 gap-6 text-sm text-gray-600">

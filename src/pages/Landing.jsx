@@ -5,8 +5,12 @@ import { Upload, Brain, FileText, Star, Check, ArrowRight, TrendingUp, Shield, C
 import HeroSection from "../components/HeroSection"
 import Pricing from "./Pricing"
 import Testimonial from "../components/Testimonial"
+import { useState } from "react"
+import FileUploadPopup from "../components/FileUploadPopup "
 
 export default function Landing() {
+  const [isUploadPopupOpen, setIsUploadPopupOpen] = useState(false);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -28,14 +32,14 @@ export default function Landing() {
   }
 
   return (
-    <div className="min-h-screen  bg-white">
+    <div className="min-h-screen  ">
     
 
       {/* Hero Section */}
   
   <HeroSection/>
       {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
+      <section id="features" className="py-20 ">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -153,6 +157,7 @@ export default function Landing() {
               className="btn-primary text-slate-900 hover:bg-slate-100 text-lg px-8 py-4 rounded-lg transition-all duration-200 shadow-lg flex items-center justify-center font-medium"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => setIsUploadPopupOpen(true)}
             >
               <Upload className="mr-2 h-5 w-5" />
               Upload CSV
@@ -169,7 +174,11 @@ export default function Landing() {
         </div>
       </section>
 
-     
+     // Add the popup component
+<FileUploadPopup 
+  isOpen={isUploadPopupOpen} 
+  onClose={() => setIsUploadPopupOpen(false)} 
+/>
     </div>
   )
 }

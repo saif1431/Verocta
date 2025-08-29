@@ -70,7 +70,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen ">
      
 
       <div className=" px-6 lg:px-16 py-8">
@@ -104,7 +104,7 @@ export default function Dashboard() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {businessMetrics.map((metric, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+                <div key={index} className=" rounded-xl shadow-sm border border-slate-200 p-6">
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm font-medium text-slate-600">{metric.label}</p>

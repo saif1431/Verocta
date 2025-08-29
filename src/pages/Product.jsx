@@ -23,10 +23,14 @@ import {
 } from "lucide-react"
 import { useState } from "react"
 import UniformProcessCards from "../components/VeroctaCard"
+import FileUploadPopup from "../components/FileUploadPopup "
+import { useNavigate } from "react-router-dom"
 
 export default function Product() {
+  const [isUploadPopupOpen, setIsUploadPopupOpen] = useState(false);
   const [showAccuracyDetails, setShowAccuracyDetails] = useState(false)
   const [showRecommendationsDetails, setShowRecommendationsDetails] = useState(false)
+  const navigate  = useNavigate()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -58,7 +62,7 @@ export default function Product() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen ">
       {/* Hero Section */}
       <div className="container mx-auto px-6 py-20">
         <motion.div
@@ -95,9 +99,10 @@ export default function Product() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <motion.button
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="btn-primary text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+               onClick={() => setIsUploadPopupOpen(true)}
             >
               <Upload className="w-5 h-5" />
               Upload CSV & Get SpendScore
@@ -122,7 +127,7 @@ export default function Product() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          <div className="text-center mb-12">
+          <div id="SpendScore" className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">The SpendScore System</h2>
             <p className="text-lg text-slate-600 max-w-3xl mx-auto">
               Your financial health score, calculated using our proprietary AI algorithm
@@ -497,9 +502,10 @@ export default function Product() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
               <motion.button
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="btn-primary   text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setIsUploadPopupOpen(true)}
               >
                 <Upload className="w-5 h-5" />
                 Upload CSV & Get Free SpendScore
@@ -508,6 +514,7 @@ export default function Product() {
                 className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl font-semibold hover:border-slate-400 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => navigate('/pricing')}
               >
                 Start Free Trial
               </motion.button>
@@ -530,6 +537,12 @@ export default function Product() {
           </div>
         </motion.div>
       </div>
+      
+           // Add the popup component
+      <FileUploadPopup 
+        isOpen={isUploadPopupOpen} 
+        onClose={() => setIsUploadPopupOpen(false)} 
+      />
     </div>
   )
 }

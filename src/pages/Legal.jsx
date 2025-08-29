@@ -153,7 +153,7 @@ export default function Legal() {
   const currentSection = legalSections.find((section) => section.id === activeTab)
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen ">
       <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -177,7 +177,7 @@ export default function Legal() {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Tab Navigation */}
-          <div className="border-b border-slate-200 mb-12">
+          <div className="bg-white border-b border-slate-200 mb-12">
             <nav className="flex space-x-8 overflow-x-auto">
               {legalSections.map((section) => {
                 const Icon = section.icon
@@ -235,7 +235,7 @@ export default function Legal() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-slate-50 rounded-xl p-8 border border-slate-100"
+                  className="bg-slate-100 rounded-xl p-8 border border-slate-100"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">
@@ -253,7 +253,7 @@ export default function Legal() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="py-20 px-4 ">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-8">
@@ -267,7 +267,7 @@ export default function Legal() {
             <div className="space-y-4">
               <a
                 href="mailto:legal@verocta.com"
-                className="inline-flex items-center space-x-3 px-8 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"
+                className="inline-flex items-center space-x-3 px-8 py-4 btn-primary text-white rounded-xl hover:bg-blue-700 transition-colors duration-200 font-semibold text-lg shadow-lg hover:shadow-xl"
               >
                 <Mail className="w-5 h-5" />
                 <span>legal@verocta.com</span>

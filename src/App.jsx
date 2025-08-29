@@ -4,13 +4,9 @@ import Landing from './pages/Landing'
 import Product from './pages/Product'
 import Pricing from './pages/Pricing'
 import About from './pages/About'
-import Terms from './pages/Terms'
-import Privacy from './pages/Privacy'
 import Auth from './pages/Auth'
 import Dashboard from './pages/Dashboard'
-import Upload from './pages/Upload'
 import Insights from './pages/Insights'
-import Reports from './pages/Reports'
 import Company from './pages/CompanyPage'
 import Legal from './pages/Legal'
 import Resources from './pages/Resources'
@@ -24,13 +20,11 @@ function App() {
           <Route path="/product" element={<Product />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/about" element={<About />} />
-          <Route path="/legal/terms" element={<Terms />} />
-          <Route path="/legal/privacy" element={<Privacy />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/upload" element={<Upload />} />
+    
           <Route path="/insights" element={<Insights />} />
-          <Route path="/reports" element={<Reports />} />
+    
           <Route path="/Company" element={<Company />} />
           <Route path="/Legal" element={<Legal />} />
           <Route path="/Resources" element={<Resources />} />
