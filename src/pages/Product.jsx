@@ -25,6 +25,7 @@ import { useState } from "react"
 import UniformProcessCards from "../components/VeroctaCard"
 import FileUploadPopup from "../components/FileUploadPopup "
 import { useNavigate } from "react-router-dom"
+import Testimonial from "../components/Testimonial"
 
 export default function Product() {
   const [isUploadPopupOpen, setIsUploadPopupOpen] = useState(false);
@@ -160,7 +161,7 @@ export default function Product() {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-slate-200">
+              <div className="card-bg rounded-xl p-6 shadow-lg border border-slate-200">
                 <h3 className="text-lg font-bold text-slate-900 mb-4">How it's calculated:</h3>
                 <div className="space-y-3">
                   {[
@@ -181,7 +182,7 @@ export default function Product() {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
+            <div className="card-bg rounded-2xl p-8 shadow-xl border border-slate-200">
               <div className="text-center mb-6">
                 <div className="text-6xl font-bold text-green-600 mb-2">78</div>
                 <div className="text-lg font-semibold text-slate-700">Your SpendScore</div>
@@ -278,7 +279,7 @@ export default function Product() {
               return (
                 <motion.div
                   key={item.title}
-                  className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300"
+                  className="card-bg rounded-xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.6 + index * 0.1 }}
@@ -437,41 +438,7 @@ export default function Product() {
             <h2 className="text-3xl font-bold text-slate-900 mb-4">What Our Customers Say</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {[
-              {
-                quote: "We uncovered £3k/month in unnecessary spend",
-                name: "Sarah Chen",
-                role: "CFO, TechFlow",
-                rating: 5,
-              },
-              {
-                quote: "It's like having a finance analyst on demand",
-                name: "Marcus Rodriguez",
-                role: "Finance Director, GrowthCorp",
-                rating: 5,
-              },
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-xl p-6 shadow-lg border border-slate-200"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2.6 + index * 0.2 }}
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-slate-700 mb-4 italic text-lg">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold text-slate-900">{testimonial.name}</p>
-                  <p className="text-sm text-slate-600">{testimonial.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      <Testimonial/>
         </motion.div>
 
         {/* Security & Privacy */}
@@ -481,7 +448,7 @@ export default function Product() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2.8 }}
         >
-          <div className="bg-slate-50 rounded-xl p-6 border border-slate-200 max-w-2xl mx-auto text-center">
+          <div className="card-bg rounded-xl p-6 border border-slate-200 max-w-2xl mx-auto text-center">
             <Shield className="w-12 h-12 text-blue-600 mx-auto mb-4" />
             <p className="text-slate-700 font-medium">Your data is encrypted, stored securely, and never shared</p>
           </div>
@@ -511,7 +478,7 @@ export default function Product() {
                 Upload CSV & Get Free SpendScore
               </motion.button>
               <motion.button
-                className="border-2 border-slate-300 text-slate-700 px-8 py-4 rounded-xl font-semibold hover:border-slate-400 transition-all duration-300"
+                className="btn-secondary text-slate-700 px-8 py-4 rounded-xl font-semibold hover:border-slate-400 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate('/pricing')}
@@ -538,7 +505,7 @@ export default function Product() {
         </motion.div>
       </div>
       
-           // Add the popup component
+        
       <FileUploadPopup 
         isOpen={isUploadPopupOpen} 
         onClose={() => setIsUploadPopupOpen(false)} 

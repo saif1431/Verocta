@@ -203,7 +203,7 @@ export default function Resources() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
+                className="card-bg rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer group"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-200 transition-colors">
@@ -241,7 +241,7 @@ export default function Resources() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="border border-slate-200 rounded-lg overflow-hidden"
+                className="border border-slate-400 rounded-lg overflow-hidden"
               >
                 <button
                   onClick={() => setActiveAccordion(activeAccordion === index ? null : index)}
@@ -292,7 +292,7 @@ export default function Resources() {
                     placeholder="Search FAQs..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full pl-10 pr-4 py-3 border border-slate-500 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -320,7 +320,7 @@ export default function Resources() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="bg-white rounded-lg p-6 shadow-sm border border-slate-200"
+                    className="card-bg rounded-lg p-6 shadow-sm border border-slate-200"
                   >
                     <h3 className="text-lg font-semibold text-slate-900 mb-2">{faq.question}</h3>
                     <p className="text-slate-600">{faq.answer}</p>
@@ -335,7 +335,7 @@ export default function Resources() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-lg p-6 shadow-sm border border-slate-200"
+                className="card-bg rounded-lg p-6 shadow-sm border border-slate-200"
               >
                 <h3 className="text-xl font-semibold text-slate-900 mb-4">Need More Help?</h3>
                 <div className="space-y-4">
@@ -356,7 +356,7 @@ export default function Resources() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="bg-white rounded-lg p-6 shadow-sm border border-slate-200"
+                className="card-bg rounded-lg p-6 shadow-sm border border-slate-200"
               >
                 <h3 className="text-xl font-semibold text-slate-900 mb-4">Feature Request</h3>
                 <p className="text-slate-600 mb-4">Help shape our product roadmap with your suggestions.</p>
@@ -388,7 +388,7 @@ export default function Resources() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-slate-50 rounded-lg p-6 hover:bg-slate-100 transition-colors cursor-pointer group"
+                className="card-bg hover:shadow-xl rounded-lg p-6 hover:bg-slate-100 transition-colors cursor-pointer group"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-200 transition-colors">
@@ -429,7 +429,7 @@ export default function Resources() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="card-bg rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
                 <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600"></div>
                 <div className="p-6">

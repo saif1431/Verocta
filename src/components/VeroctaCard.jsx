@@ -7,7 +7,7 @@ export default function UniformProcessCards() {
   const [showRecommendationsDetails, setShowRecommendationsDetails] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
+    <div className="min-h-screen p-8">
       {/* What is Verocta - 3 Step Process */}
       <motion.div
         className="mb-20"
@@ -56,7 +56,7 @@ export default function UniformProcessCards() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0 + index * 0.2 }}
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 text-center relative overflow-hidden h-full flex flex-col">
+                <div className="card-bg rounded-2xl p-6 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 text-center relative overflow-hidden h-full flex flex-col">
                   {/* Icon */}
                   <div
                     className={`w-16 h-16 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center mx-auto mb-6 shadow-lg`}

@@ -79,7 +79,7 @@ const navigate = useNavigate()
     <div className="min-h-screen ">
       {/* Hero Section */}
       <section className="relative overflow-hidden px-4 lg:px-12  py-10  lg:py-16">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+   
 
         <div className=" relative mx-auto px-2 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 grid-cols-1 gap-16 items-center">
@@ -166,11 +166,11 @@ const navigate = useNavigate()
 
             <motion.div className="relative" variants={fadeInLeft} initial="initial" animate="animate">
               <motion.div
-                className="relative bg-white border border-slate-200 shadow-2xl lg:max-w-2xl mx-auto rounded-2xl overflow-hidden"
+                className="relative card-bg border border-slate-200 shadow-2xl lg:max-w-2xl mx-auto rounded-2xl overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+                <div className=" px-6 py-4 border-b border-slate-200">
                   <div className="flex items-center  justify-between">
                     <h3 className="text-lg font-semibold text-slate-900">Your SpendScore™ Dashboard</h3>
                     <div className="flex items-center space-x-2">
@@ -293,7 +293,7 @@ const navigate = useNavigate()
                       {[40, 45, 60, 65, 75, 85].map((height, index) => (
                         <motion.div
                           key={index}
-                          className={`flex-1 rounded-t ${index < 2 ? "bg-slate-300" : index < 4 ? "bg-orange-400" : "bg-green-500"}`}
+                          className={`flex-1 rounded-t ${index < 2 ? "bg-[#10B981]" : index < 4 ? "bg-[#047857]" : "bg-green-500"}`}
                           initial={{ height: 0 }}
                           animate={{ height: `${(height / 85) * 100}%` }}
                           transition={{ duration: 0.8, delay: index * 0.1 + 2 }}

@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 function Footer() {
   return (
     <div>
-       <footer className="bg-primary  lg:px-10 px-4 text-white ">
+       <footer style={{ backgroundColor: "#00416A" }} className="  lg:px-10 px-4 text-white ">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="grid md:grid-cols-4 gap-12 mb-8 py-16">
             <div>
-              <div className="flex items-center space-x-3 mb-4">
+              <div className="flex items-cen   ter space-x-3 mb-4">
               <img className='w-20' src="/logo.png" alt="" />
               </div>
               <p className="  leading-relaxed">

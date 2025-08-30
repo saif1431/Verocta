@@ -117,7 +117,7 @@ export default function Company() {
                   className={`relative flex items-center mb-12 ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
                 >
                   <div className={`w-5/12 ${index % 2 === 0 ? "text-right pr-8" : "text-left pl-8"}`}>
-                    <div className="bg-white p-6 rounded-lg shadow-lg border border-slate-200">
+                    <div className="card-bg p-6 rounded-lg shadow-lg border border-slate-200">
                       <div className="text-blue-600 font-bold text-lg mb-2">{item.year}</div>
                       <h3 className="text-xl font-semibold text-slate-900 mb-2">{item.title}</h3>
                       <p className="text-slate-600">{item.description}</p>
@@ -175,7 +175,7 @@ export default function Company() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-center hover:shadow-xl transition-shadow"
+                className="card-bg p-8 rounded-xl shadow-lg border border-slate-200 text-center hover:shadow-xl transition-shadow"
               >
                 <div
                   className={`w-16 h-16 ${pillar.color} rounded-full flex items-center justify-center text-2xl mx-auto mb-4`}
@@ -227,7 +227,7 @@ export default function Company() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-slate-50 p-8 rounded-xl border border-slate-200"
+                className="card-bg p-8 rounded-xl border border-slate-200"
               >
                 <div className="flex items-start gap-6">
                   <div className="w-20 h-20 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0">
@@ -306,7 +306,7 @@ export default function Company() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -320,7 +320,7 @@ export default function Company() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   />
                 </div>
@@ -333,7 +333,7 @@ export default function Company() {
                     name="topic"
                     value={formData.topic}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   >
                     <option value="">Select a topic</option>
@@ -353,7 +353,7 @@ export default function Company() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     required
                   ></textarea>
                 </div>

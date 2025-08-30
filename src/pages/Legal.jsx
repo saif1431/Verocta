@@ -177,7 +177,7 @@ export default function Legal() {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           {/* Tab Navigation */}
-          <div className="bg-white border-b border-slate-200 mb-12">
+          <div className="card-bg border-b border-slate-200 mb-12">
             <nav className="flex space-x-8 overflow-x-auto">
               {legalSections.map((section) => {
                 const Icon = section.icon
@@ -204,9 +204,9 @@ export default function Legal() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-white"
+            className="card-bg p-3 rounded-lg"
           >
-            <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-100">
+            <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-400">
               <div className="flex items-center space-x-4">
                 <div className="p-3 bg-blue-100 rounded-xl">
                   <currentSection.icon className="w-8 h-8 text-blue-600" />
@@ -221,7 +221,7 @@ export default function Legal() {
               </div>
               <a
                 href={`/legal/${currentSection.id}.pdf`}
-                className="flex items-center space-x-2 px-4 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors duration-200 text-sm font-medium"
+                className="flex items-center space-x-2 px-4 py-2 bg-slate-400 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors duration-200 text-sm font-medium"
               >
                 <ExternalLink className="w-4 h-4" />
                 <span>Download PDF</span>
@@ -235,7 +235,7 @@ export default function Legal() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-slate-100 rounded-xl p-8 border border-slate-100"
+                  className="bg-slate-200 rounded-xl p-8 border border-slate-100"
                 >
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 mt-1">

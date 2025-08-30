@@ -95,9 +95,9 @@ export default function Landing() {
 .map((step, index) => (
               <motion.div
                 key={step.title}
-                className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
+                className="card-bg border border-slate-200 rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
                 variants={fadeInUp}
-              >
+              > 
               <div className={`w-16 h-16 ${step.bg} rounded-2xl flex items-center justify-center mx-auto mb-6`}>
   <step.icon className={`h-8 w-8 ${step.iconColor}`} />
 </div>
@@ -124,10 +124,10 @@ export default function Landing() {
       <Pricing/>
 
       {/* Final CTA */}
-      <section className="py-20 text-black relative overflow-hidden">
+      <section className=" text-black relative overflow-hidden">
         <div className="absolute inset-0 " />
 
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div style={{ background: "linear-gradient(135deg, #00416A 0%, #b583c8 100%)" }} className=" relative mx-auto px-4 sm:px-6 lg:px-8 text-center py-20 text-white">
           <motion.h2
             className="text-3xl lg:text-4xl font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
@@ -174,7 +174,6 @@ export default function Landing() {
         </div>
       </section>
 
-     // Add the popup component
 <FileUploadPopup 
   isOpen={isUploadPopupOpen} 
   onClose={() => setIsUploadPopupOpen(false)} 

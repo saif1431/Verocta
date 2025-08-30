@@ -71,7 +71,7 @@ export default function Testimonial() {
           ].map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white border border-slate-200 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300"
+              className="card-bg border border-slate-200 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300"
               variants={fadeInUp}
             >
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">

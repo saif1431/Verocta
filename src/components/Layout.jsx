@@ -47,7 +47,7 @@ function ProfileDropdown() {
       </button>
       
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-lg border border-gray-200 z-10">
+        <div className="absolute right-0 mt-2 w-48 bg-white/90 backdrop-blur-md rounded-md overflow-hidden shadow-lg border border-gray-200 z-10">
           <div className="px-4 py-3 border-b border-gray-100">
             <p className="text-sm text-gray-800 font-medium">{user.name}</p>
             <p className="text-sm text-gray-500 truncate">{user.email}</p>
@@ -71,7 +71,7 @@ function NavItem({ to, label, onClick }) {
       onClick={onClick}
       className={({ isActive }) =>
         `px-3 py-2 rounded-md text-md font-medium transition-colors ${
-          isActive ? 'text-black ' : 'text-black hover:text-white hover:bg-[#1E40AF]'
+          isActive ? 'text-black ' : 'text-black  hover:text-white hover:bg-[#b583c8]'
         }`
       }
     >
