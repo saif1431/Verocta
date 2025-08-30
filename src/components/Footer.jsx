@@ -27,10 +27,14 @@ function Footer() {
                 </li>
                 <li>
               
-                  <Link className="hover:text-slate-900 transition-colors" to='/pricing'>Pricing</Link>
+                  <Link 
+                     onClick={() => window.scrollTo(0, 0)}
+                    className="hover:text-slate-900 transition-colors" to='/pricing'>Pricing</Link>
                 </li>
                 <li>
-                <Link className="hover:text-slate-900 transition-colors" to='/Resources'>Resources</Link>
+                <Link 
+                   onClick={() => window.scrollTo(0, 0)}
+                  className="hover:text-slate-900 transition-colors" to='/Resources'>Resources</Link>
 
                 </li>
             
@@ -41,14 +45,18 @@ function Footer() {
               <h4 className="font-semibold  mb-4">Company</h4>
               <ul className="space-y-3">
                 <li>
-                 <Link className="hover:text-slate-900 transition-colors" to='/Company'>About US</Link>
+                 <Link 
+                    onClick={() => window.scrollTo(0, 0)}
+                   className="hover:text-slate-900 transition-colors" to='/Company'>About US</Link>
                 </li>
                 <li>
                 <Link className="hover:text-slate-900 transition-colors" to='/Company'>Our Team</Link>
                 </li>
            
                 <li>
-                           <Link className="hover:text-slate-900 transition-colors" to='/Company'>Contact Us</Link>
+                           <Link 
+                              onClick={() => window.scrollTo(0, 0)}
+                             className="hover:text-slate-900 transition-colors" to='/Company'>Contact Us</Link>
                 </li>
               </ul>
             </div>
@@ -57,13 +65,17 @@ function Footer() {
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-3">
                 <li>
-                     <Link className="hover:text-slate-900 transition-colors" to='/Legal'>Privacy Policy</Link>
+                     <Link 
+                        onClick={() => window.scrollTo(0, 0)}
+                       className="hover:text-slate-900 transition-colors" to='/Legal'>Privacy Policy</Link>
                 </li>
                 <li>
                 <Link className="hover:text-slate-900 transition-colors" to='/Legal'>Term of Service</Link>
                 </li>
                 <li>
-                 <Link className="hover:text-slate-900 transition-colors" to='/Legal'>Cookie Policy</Link>
+                 <Link 
+                    onClick={() => window.scrollTo(0, 0)}
+                   className="hover:text-slate-900 transition-colors" to='/Legal'>Cookie Policy</Link>
                 </li>
                
               </ul>
