@@ -20,9 +20,10 @@ function Footer() {
               <h4 className="font-semibold  mb-4">Product</h4>
               <ul className="space-y-3">
                 <li>
-                  <a href="/product#SpendScore" className="hover:text-slate-900 transition-colors">
-                    SpendScore 
-                  </a>
+              
+                   <Link 
+                     onClick={() => window.scrollTo(0, 0)}
+                    className="hover:text-slate-900 transition-colors" to='/product'>SpendScore</Link>
 
                 </li>
                 <li>
@@ -50,7 +51,9 @@ function Footer() {
                    className="hover:text-slate-900 transition-colors" to='/Company'>About US</Link>
                 </li>
                 <li>
-                <Link className="hover:text-slate-900 transition-colors" to='/Company'>Our Team</Link>
+                <Link 
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="hover:text-slate-900 transition-colors" to='/Company'>Our Team</Link>
                 </li>
            
                 <li>
@@ -70,7 +73,9 @@ function Footer() {
                        className="hover:text-slate-900 transition-colors" to='/Legal'>Privacy Policy</Link>
                 </li>
                 <li>
-                <Link className="hover:text-slate-900 transition-colors" to='/Legal'>Term of Service</Link>
+                <Link 
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="hover:text-slate-900 transition-colors" to='/Legal'>Term of Service</Link>
                 </li>
                 <li>
                  <Link 
