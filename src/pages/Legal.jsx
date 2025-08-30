@@ -154,7 +154,7 @@ export default function Legal() {
 
   return (
     <div className="min-h-screen ">
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 py-24 px-4">
+      <section className="relative  py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
