@@ -162,11 +162,11 @@ export default function Legal() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 text-balance leading-tight">
+            <h1 className="text-5xl md:text-7xl font-bold text-black mb-8 text-balance leading-tight">
               Trust is Earned —<br />
               <span className="text-blue-400">Here's Ours.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto text-pretty leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-800 max-w-3xl mx-auto text-pretty leading-relaxed">
               Transparency, security, and responsibility are at the core of everything we do. Explore our comprehensive
               legal framework and commitments.
             </p>
@@ -185,7 +185,7 @@ export default function Legal() {
                   <button
                     key={section.id}
                     onClick={() => setActiveTab(section.id)}
-                    className={`flex items-center space-x-3 py-4 px-2 border-b-2 font-medium text-sm whitespace-nowrap transition-colors duration-200 ${
+                    className={`flex items-center text-center space-x-3 py-4 px-2 border-b-2 font-medium text-sm whitespace-nowrap transition-colors duration-200 ${
                       activeTab === section.id
                         ? "border-blue-600 text-blue-600"
                         : "border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300"
